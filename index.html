@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Preguntas y Respuestas</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <div class="overlay" id="overlay">
+        <div class="logIn">
+            <h2>Ingresa Tu nombre</h2>
+            <input type="text" id="username" placeholder="Enter your name">
+            <button id="loginButton">Log In</button>
+        </div>
+    </div>
+    <h1>Bienvenido a PregunCoder</h1>
+    <h1 id="questionTitle">Pregunta</h1>
+    <div id="question-container">
+        
+   
+        <button class="answerButton"></button>
+        <button class="answerButton"></button>
+        <button class="answerButton"></button>
+        <button class="answerButton"></button>
+    </div>
+    <div>
+        <img id="heart1" src="./img/life/life.png" alt="vida">
+        <img id="heart2" src="./img/life/life.png" alt="vida">
+        <img id="heart3" src="./img/life/life.png" alt="vida">
+   
+    <p>Puntaje: <span id="score">0</span></p>
+
+   <script src="./app.js"></script>
+</body>
+</html>
