@@ -8,6 +8,26 @@
         const choice = document.getElementById('choice');
         const questionCont = document.getElementById('question-container');
 
+        const overlay = document.getElementById("overlay");
+    const loginButton = document.getElementById("loginButton");
+    const usernameInput = document.getElementById("username");
+    const nameDiv = document.getElementById("name");
+    let username = "";
+  
+
+ 
+
+    // Manejar el evento de clic en el botón de inicio de sesión
+    loginButton.addEventListener("click", function() {
+        
+        username = usernameInput.value.trim();
+        if (username !== "") {
+            // Ocultar el overlay
+            overlay.style.display = "none";
+            nameDiv.textContent = "¡Hola, " + username + "!";                        
+        }
+    });
+
         const preguntas = [
             {
                 pregunta: '¿Cuál es la capital de Francia?',
@@ -89,11 +109,13 @@
             if (respuestaSeleccionada === preguntaActual.respuestaCorrecta) {
                 score += 10;
                 scoreDisplay.textContent = score;
+                nameDiv.textContent = username ;  
                 choice.textContent = "Correcto";
             } else {
                 lives--;
                 hearts[lives].style.display = 'none';
                 choice.textContent = "Incorrecto"
+                nameDiv.textContent = username ; 
             }
 
             currentQuestionIndex++;
