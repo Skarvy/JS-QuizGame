@@ -1,10 +1,12 @@
      
+        
+        const title = document.getElementById('title');
         const questionTitle = document.getElementById('questionTitle');
         const answerButtons = document.querySelectorAll('.answerButton');
         const hearts = document.querySelectorAll('img[id^="heart"]');
         const scoreDisplay = document.getElementById('score');
-        
-        const questionCont = document.getElementById("question-container");
+        const choice = document.getElementById('choice');
+        const questionCont = document.getElementById('question-container');
 
         const preguntas = [
             {
@@ -42,7 +44,7 @@
                 respuestas: ['1917', '1898', '1923', '1905'],
                 respuestaCorrecta: '1917'
             }
-            // Agrega más preguntas aquí
+          
         ];
 
         let currentQuestionIndex = 0;
@@ -64,12 +66,14 @@
                 } else {
                     // Juego terminado
                     questionCont.style.display = "none";
-                    questionTitle.textContent = '¡Juego terminado!';
+                    title.textContent = "Juego Finalizado"
+                    questionTitle.textContent = '¡Llegastes al Final, Bravo!';
                 }
             } else {
                 // Si el jugador se quedó sin vidas, muestra el mensaje de juego terminado
                 questionCont.style.display = "none";
-                questionTitle.textContent = '¡Te quedaste sin vidas! Juego terminado';
+                title.textContent = "Juego Finalizado"
+                questionTitle.textContent = '¡Te quedaste sin vidas!';
             }
         }
 
@@ -77,7 +81,7 @@
             if (lives <= 0) {
                 // Si ya no hay vidas, muestra el mensaje de juego terminado
                 questionCont.style.display = "none";
-                questionTitle.textContent = '¡Te quedaste sin vidas! Juego terminado';
+                questionTitle.textContent = '¡Te quedaste sin vidas!';
                 return;
             }
 
@@ -85,9 +89,11 @@
             if (respuestaSeleccionada === preguntaActual.respuestaCorrecta) {
                 score += 10;
                 scoreDisplay.textContent = score;
+                choice.textContent = "Correcto";
             } else {
                 lives--;
                 hearts[lives].style.display = 'none';
+                choice.textContent = "Incorrecto"
             }
 
             currentQuestionIndex++;
