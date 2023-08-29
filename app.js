@@ -1,22 +1,19 @@
      
         
-        const title = document.getElementById('title');
-        const questionTitle = document.getElementById('questionTitle');
-        const answerButtons = document.querySelectorAll('.answerButton');
-        const hearts = document.querySelectorAll('img[id^="heart"]');
-        const scoreDisplay = document.getElementById('score');
-        const choice = document.getElementById('choice');
-        const questionCont = document.getElementById('question-container');
-
-        const overlay = document.getElementById("overlay");
+    const title = document.getElementById('title');
+    const questionTitle = document.getElementById('questionTitle');
+    const answerButtons = document.querySelectorAll('.answerButton');
+    const hearts = document.querySelectorAll('img[id^="heart"]');
+    const scoreDisplay = document.getElementById('score');
+    const choice = document.getElementById('choice');
+    const questionCont = document.getElementById('question-container');
+    const overlay = document.getElementById("overlay");
     const loginButton = document.getElementById("loginButton");
     const usernameInput = document.getElementById("username");
     const nameDiv = document.getElementById("name");
     let username = "";
   
-
  
-
     // Manejar el evento de clic en el botón de inicio de sesión
     loginButton.addEventListener("click", function() {
         
