@@ -1,5 +1,3 @@
-     
-        
     const title = document.getElementById('title');
     const questionTitle = document.getElementById('questionTitle');
     const answerButtons = document.querySelectorAll('.answerButton');
@@ -11,20 +9,16 @@
     const loginButton = document.getElementById("loginButton");
     const usernameInput = document.getElementById("username");
     const nameDiv = document.getElementById("name");
-    let username = "";
+    let player ={
+        playerName:prompt("inserte su nombre"),
+        lives:3,
+        score:0,
+        currentQuestionIndex:0
+    } ;
   
  
-    // Manejar el evento de clic en el botón de inicio de sesión
-    loginButton.addEventListener("click", function() {
+    nameDiv.textContent=player.playerName
         
-        username = usernameInput.value.trim();
-        if (username !== "") {
-            // Ocultar el overlay
-            overlay.style.display = "none";
-            nameDiv.textContent = "¡Hola, " + username + "!";                        
-        }
-    });
-
         const preguntas = [
             {
                 pregunta: '¿Cuál es la capital de Francia?',
@@ -62,19 +56,13 @@
                 respuestaCorrecta: '1917'
             }
           
-        ];
-
-        let currentQuestionIndex = 0;
-        let lives = 3;
-        let score = 0;
-
-
+        ];      
 
 
         function mostrarPregunta() {
-            if (lives > 0) {
-                if (currentQuestionIndex < preguntas.length) {
-                    const preguntaActual = preguntas[currentQuestionIndex];
+            if (player.lives > 0) {
+                if (player.currentQuestionIndex < preguntas.length) {
+                    const preguntaActual = preguntas[player.currentQuestionIndex];
                     questionTitle.textContent = preguntaActual.pregunta;
 
                     for (let i = 0; i < preguntaActual.respuestas.length; i++) {
@@ -95,27 +83,26 @@
         }
 
         function evaluarRespuesta(respuestaSeleccionada) {
-            if (lives <= 0) {
+            if (player.lives <= 0) {
                 // Si ya no hay vidas, muestra el mensaje de juego terminado
                 questionCont.style.display = "none";
                 questionTitle.textContent = '¡Te quedaste sin vidas!';
                 return;
             }
 
-            const preguntaActual = preguntas[currentQuestionIndex];
+            const preguntaActual = preguntas[player.currentQuestionIndex];
             if (respuestaSeleccionada === preguntaActual.respuestaCorrecta) {
-                score += 10;
-                scoreDisplay.textContent = score;
-                nameDiv.textContent = username ;  
-                choice.textContent = "Correcto";
+                player.score += 10;
+                scoreDisplay.textContent = player.score;
+                alert("Correcto")          
+                      
             } else {
-                lives--;
-                hearts[lives].style.display = 'none';
-                choice.textContent = "Incorrecto"
-                nameDiv.textContent = username ; 
+                player.lives--;
+                hearts[player.lives].style.display = 'none';
+                alert("Incorrecto")            
             }
 
-            currentQuestionIndex++;
+            player.currentQuestionIndex++;
             mostrarPregunta();
         }
 
