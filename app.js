@@ -8,7 +8,6 @@ const hearts = document.querySelectorAll('img[id^="heart"]');
 const scoreDisplay = document.getElementById('score');
 const choice = document.getElementById('choice');
 const questionCont = document.getElementById('question-container');
-
 const usernameInput = document.getElementById("username");
 const nameDiv = document.getElementById("name");
 const game_content = document.getElementById("game_content");
@@ -24,7 +23,6 @@ let player = {
     score: 0,
     currentQuestionIndex: 0
 };
-
 
 
 // Definición de las preguntas y respuestas
@@ -147,16 +145,13 @@ function evaluarRespuesta(respuestaSeleccionada) {
     message.style.backgroundColor = color;
     message.classList.remove("hidden");
   
-    // Ocultar el mensaje después de 2 segundos (2000 milisegundos)
+    /* Ocultar el mensaje después de 0.5 segundos. 
+    En la proxima entrega voy a solucionar esto con una libreria, es una solucion temporal por no poder usar los alert.  */
     setTimeout(function () {
       message.classList.add("hidden");
     }, 500);
   }
   
-
-
-
-
 
 
 
