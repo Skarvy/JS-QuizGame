@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juego de Preguntas y Respuestas</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>PregunCoder</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     <script src="./app.js" defer></script>
 </head>
 <body>
@@ -17,8 +18,7 @@
     
 
     <div id="game_content">
-      
-        <h1 id="title">Bienvenido a PregunCoder</h1>   
+        <h1 id="title">Listo para Jugar! </h1>   
         <h2 id="name"></h2>  
         <h2 id="questionTitle">Pregunta</h2>        
         <div id="question-container">     
@@ -27,9 +27,7 @@
             <button class="answerButton"></button>
             <button class="answerButton"></button>
             <h3 id="choice"></h3>
-            <div id="message-container">
-                <div id="message" class="hidden"></div>
-              </div>
+            
         </div>
         <div>
             <img id="heart1" src="./img/life/life.png" alt="vida">

@@ -1,4 +1,4 @@
- // Seleccionar elementos del DOM
+// Seleccionar elementos del DOM
 const logIn_content = document.getElementById("logIn_content");
 const loginButton = document.getElementById("loginButton");
 const title = document.getElementById('title');
@@ -24,46 +24,23 @@ let player = {
     currentQuestionIndex: 0
 };
 
-
 // Definición de las preguntas y respuestas
-const preguntas = [
-    {
-        pregunta: '¿Cuál es la capital de Francia?',
-        respuestas: ['París', 'Londres', 'Madrid', 'Berlín'],
-        respuestaCorrecta: 'París'
-    },
-    {
-        pregunta: '¿En qué año se fundó Apple Inc.?',
-        respuestas: ['1976', '1984', '1991', '2001'],
-        respuestaCorrecta: '1976'
-    },
-    {
-        pregunta: '¿Quién escribió la obra "Don Quijote de la Mancha"?',
-        respuestas: ['Miguel de Cervantes', 'Federico García Lorca', 'Pablo Neruda', 'Gabriel García Márquez'],
-        respuestaCorrecta: 'Miguel de Cervantes'
-    },
-    {
-        pregunta: '¿Cuál es el río más largo del mundo?',
-        respuestas: ['Amazonas', 'Nilo', 'Yangtsé', 'Misisipi'],
-        respuestaCorrecta: 'Nilo'
-    },
-    {
-        pregunta: '¿Qué planeta es conocido como el "Planeta Rojo"?',
-        respuestas: ['Venus', 'Marte', 'Júpiter', 'Saturno'],
-        respuestaCorrecta: 'Marte'
-    },
-    {
-        pregunta: '¿Quién pintó la Mona Lisa?',
-        respuestas: ['Vincent van Gogh', 'Pablo Picasso', 'Leonardo da Vinci', 'Rembrandt'],
-        respuestaCorrecta: 'Leonardo da Vinci'
-    },
-    {
-        pregunta: '¿En qué año se llevó a cabo la Revolución Rusa?',
-        respuestas: ['1917', '1898', '1923', '1905'],
-        respuestaCorrecta: '1917'
-    }
-  
-];  
+let preguntas = null;
+async function getPreguntas() {
+  const url = "./recursos/preguntas.json";
+  const response = await fetch(url);
+  preguntas = await response.json();
+}
+
+// Llama a la función getPreguntas para obtener los datos
+getPreguntas()
+  .then(() => {
+    // Los datos estarán disponibles aquí una vez que la promesa se resuelva
+    mostrarPregunta();
+  })
+  .catch((error) => {
+    console.error("Error al obtener preguntas:", error);
+  });
 
 loginButton.addEventListener("click", function () {
     const loginInput = document.getElementById("loginInput").value; 
@@ -74,7 +51,12 @@ loginButton.addEventListener("click", function () {
         player.playerName = loginInput;
         nameDiv.textContent = player.playerName;
     } else {
-        alert("Inserte un nombre válido"); 
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Inserte un nombre Valido',
+        toast: true,        
+      })
     }
 });
 
@@ -127,33 +109,30 @@ function evaluarRespuesta(respuestaSeleccionada) {
     if (respuestaSeleccionada === preguntaActual.respuestaCorrecta) {
       player.score += 10;
       scoreDisplay.textContent = player.score;
-      mostrarMensaje("Correcto", "green");
+      Swal.fire({
+        icon: 'success',
+        title: 'Correcto',
+        text: 'Respuesta Correcta!',
+        toast: true,
+        showConfirmButton: false,
+        timer: 1500        
+      })
     } else {
       player.lives--;
       hearts[player.lives].style.display = 'none';
-      mostrarMensaje("Incorrecto", "red");
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Respuesta Incorrecta!', 
+        toast: true,
+        showConfirmButton: false,
+        timer: 1500          
+      })
     }
   
     player.currentQuestionIndex++;
     mostrarPregunta();
   }
-  
-  function mostrarMensaje(mensaje, color) {
-    const messageContainer = document.getElementById("message-container");
-    const message = document.getElementById("message");
-    message.textContent = mensaje;
-    message.style.backgroundColor = color;
-    message.classList.remove("hidden");
-  
-    /* Ocultar el mensaje después de 0.5 segundos. 
-    En la proxima entrega voy a solucionar esto con una libreria, es una solucion temporal por no poder usar los alert.  */
-    setTimeout(function () {
-      message.classList.add("hidden");
-    }, 500);
-  }
-  
-
-
 
 // Agregar manejadores de eventos a los botones de respuesta
 answerButtons.forEach(button => {
@@ -199,9 +178,5 @@ function mostrarTablaPuntajes() {
 
 // Agregar un manejador de eventos al botón de la tabla de puntajes
 tableScoreBtn.addEventListener('click', () => {
-    
     mostrarTablaPuntajes();
 });
-
-// Iniciar el juego mostrando la primera pregunta
-mostrarPregunta();
