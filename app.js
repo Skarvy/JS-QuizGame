@@ -115,7 +115,7 @@ function evaluarRespuesta(respuestaSeleccionada) {
         text: 'Respuesta Correcta!',
         toast: true,
         showConfirmButton: false,
-        timer: 1500        
+        timer: 1000        
       })
     } else {
       player.lives--;
@@ -126,7 +126,7 @@ function evaluarRespuesta(respuestaSeleccionada) {
         text: 'Respuesta Incorrecta!', 
         toast: true,
         showConfirmButton: false,
-        timer: 1500          
+        timer: 1000          
       })
     }
   
