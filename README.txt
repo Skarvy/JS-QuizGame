@@ -33,6 +33,11 @@ Personalización
 		Agregar más preguntas y respuestas al archivo preguntas.json.
 		Cambiar los estilos en el archivo style.css.
 		Personalizar los mensajes de éxito y error de SweetAlert en el archivo script.js.
+
+Page Online
+
+https://skarvy.github.io/ProyectoFinal-Scavariello/
+
 Créditos
 Este juego utiliza la biblioteca SweetAlert para mostrar mensajes emergentes.
 Autor
