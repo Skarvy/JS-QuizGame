@@ -36,7 +36,7 @@ If you wish to customize the game, you can do the following:
 
 ## Online Page
 
-[Play the Game Online](https://skarvy.github.io/ProyectoFinal-Scavariello/)
+[Play the Game Online](https://skarvy.github.io/JS-QuizGame/)
 
 ## Credits
 This game utilizes the SweetAlert library for displaying pop-up messages.
