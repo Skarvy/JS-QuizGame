@@ -1,44 +1,45 @@
-Juego de Preguntas y Respuestas
+# Question and Answer Game
 
-Este es un juego de preguntas y respuestas simple construido con HTML, JavaScript y CSS. Los jugadores pueden responder preguntas, acumular puntajes y ver los puntajes más altos al final del juego. El juego utiliza la biblioteca SweetAlert para mostrar mensajes de éxito y error.
+This is a simple question and answer game built with HTML, JavaScript, and CSS. Players can answer questions, accumulate scores, and view high scores at the end of the game. The game uses the SweetAlert library to display success and error messages.
 
-Funcionalidades
+## Features
 
-	Los jugadores pueden ingresar su nombre para comenzar el juego.
-	El juego muestra preguntas y opciones de respuesta.
-	Los jugadores ganan puntos al responder correctamente.
-	Los jugadores pierden vidas al responder incorrectamente.
-	El juego finaliza cuando se agotan las vidas o se responden todas las preguntas.
-	Los puntajes se almacenan localmente y se muestran en una tabla de puntajes.
+- Players can enter their name to start the game.
+- The game displays questions and answer options.
+- Players earn points for correct answers.
+- Players lose lives for incorrect answers.
+- The game ends when lives run out or all questions are answered.
+- Scores are stored locally and displayed in a score table.
 
-Estructura del Proyecto
+## Project Structure
 
-	index.html: Contiene la estructura HTML para el juego.
-	style.css: Estilos CSS para dar formato al juego.
-	script.js: Código JavaScript que controla la lógica del juego.
-	preguntas.json: Archivo JSON que almacena las preguntas y respuestas.
+- **index.html:** Contains the HTML structure for the game.
+- **style.css:** CSS styles to format the game.
+- **script.js:** JavaScript code controlling the game logic.
+- **questions.json:** JSON file storing the questions and answers.
 
-Uso
+## Usage
 
-	Abre index.html en tu navegador web.
-	Ingresa tu nombre y haz clic en "Iniciar juego".
-	Responde las preguntas seleccionando una opción.
-	Acumula puntos y trata de no perder todas tus vidas.
-	Al final del juego, puedes hacer clic en "Ver puntajes" para ver la tabla de puntajes.
+1. Open index.html in your web browser.
+2. Enter your name and click "Start Game."
+3. Answer the questions by selecting an option.
+4. Accumulate points and try not to lose all your lives.
+5. At the end of the game, you can click "View Scores" to see the score table.
 
-Personalización
+## Customization
 
-	Si deseas personalizar el juego, puedes hacer lo siguiente:
+If you wish to customize the game, you can do the following:
 
-		Agregar más preguntas y respuestas al archivo preguntas.json.
-		Cambiar los estilos en el archivo style.css.
-		Personalizar los mensajes de éxito y error de SweetAlert en el archivo script.js.
+- Add more questions and answers to the questions.json file.
+- Change styles in the style.css file.
+- Customize success and error messages in SweetAlert in the script.js file.
 
-Page Online
+## Online Page
 
-https://skarvy.github.io/ProyectoFinal-Scavariello/
+[Play the Game Online](https://skarvy.github.io/ProyectoFinal-Scavariello/)
 
-Créditos
-Este juego utiliza la biblioteca SweetAlert para mostrar mensajes emergentes.
-Autor
+## Credits
+This game utilizes the SweetAlert library for displaying pop-up messages.
+
+## Author
 Scavariello Aldo Joaquin.
